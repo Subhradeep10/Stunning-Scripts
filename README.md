@@ -37,4 +37,21 @@ git push
 
 ## Project Maintainers
 
+<table align="center">
+	<tr >
+    <td align="center">
+            <a href="https://github.com/Subhradeep10">
+              <img src="https://avatars3.githubusercontent.com/u/70656957?v=4" width="100px" alt=""/><br />
+              <sub><b>Subhradeep10</b></sub>
+            </a>
+   </td>
+  </tr>
+</table>
+
+## Contributors
+
+<a href="https://github.com/subhradeep10/Automation-Scripts-Using-Python/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=subhradeep10/Automation-Scripts-Using-Python" />
+</a>
+
 ### If you find this repository Helpful consider leaving ⭐

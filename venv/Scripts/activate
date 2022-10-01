@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Automation-Scripts-Using-Python\venv"
+VIRTUAL_ENV="C:\Users\iamsa\Desktop\PYTHON_SCRIPTS\Automation-Scripts-Using-Python\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -19,3 +19,12 @@ filePaths = []
 
 for i in os.listdir(path):
     filePaths.append(path + i)
+
+if metricsChoice == 1:
+    filePaths.sort(key = os.path.getctime)
+elif metricsChoice == 2:
+    filePaths.sort(key=os.path.getmtime)
+elif metricsChoice == 3:
+    filePaths.sort()
+elif metricsChoice == 4:
+    filePaths.sort(key=os.path.getsize)

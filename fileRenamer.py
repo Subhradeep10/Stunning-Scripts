@@ -14,3 +14,8 @@ for count, i in enumerate(metricsList, start=1):
 
 metricsChoice = int(input("Enter the number corresponding to the metric: "))
 commonName = input('\nEnter the common name for the files: ')
+
+filePaths = []
+
+for i in os.listdir(path):
+    filePaths.append(path + i)

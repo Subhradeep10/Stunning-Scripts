@@ -28,3 +28,9 @@ elif metricsChoice == 3:
     filePaths.sort()
 elif metricsChoice == 4:
     filePaths.sort(key=os.path.getsize)
+
+n = 1
+for src in filePaths:
+    ext = src.split('.')[-1]
+    os.rename(src, f'{path}/{commonName} {n}.{ext}')
+    n += 1

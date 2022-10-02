@@ -1,16 +1,18 @@
-Height=float(input("Enter your height in centimeters: "))
-Weight=float(input("Enter your Weight in Kg: "))
-Height = Height/100
+Height = float(input("Enter your height in centimeters: "))/100
+Weight = float(input("Enter your Weight in Kg: "))
+
 BMI=Weight/(Height*Height)
-print("your Body Mass Index is: ",BMI)
+print("Your body mass index is: ",BMI)
 if(BMI>0):
-	if(BMI<=16):
-		print("you are severely underweight")
-	elif(BMI<=18.5):
-		print("you are underweight")
-	elif(BMI<=25):
-		print("you are Healthy")
-	elif(BMI<=30):
-		print("you are overweight")
-	else: print("you are severely overweight")
-else:("enter valid details")
+	if BMI<=16:
+		print("You are severely underweight")
+	elif BMI<=18.5:
+		print("You are underweight")
+	elif BMI<=25:
+		print("You are Healthy")
+	elif BMI<=30:
+		print("You are overweight")
+	else: 
+		print("You are severely overweight")
+else:
+	print("Enter valid details")

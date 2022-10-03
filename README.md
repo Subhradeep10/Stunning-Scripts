@@ -8,7 +8,7 @@ The main objective of this repository is to support both novice and seasoned con
 
 ## How to Contribute
 
-- Read the [Contributing Guidelines](Contributing.md) before making a PR.
+- Read the [Contributing Guidelines](Contruibuting.md) before making a PR.
 - Check for existing issues or create your own issues and wait for it to be assigned to you.
 - Fork the repository
 - Clone the forked repository to your local machine

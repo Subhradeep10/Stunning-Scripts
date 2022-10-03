@@ -2,7 +2,7 @@
 
 from twilio.rest import Client
 
-print("\n" + " *****        WELCOME TO AUTOMATED PYTHON CALLING SCRIPT       ***** ")
+print("\n" + " *****        WELCOME TO AUTOMATED PYTHONz SCRIPT       ***** ")
 print(" *****  PLEASE CREATE A TWILIO ACCOUNT BEFORE USING THE SCRIPT ***** ")
 print(" *****      TO CREATE TWILIO ACCOUNT GO TO WWW.TWILIO.COM      ***** ")
 print(" *****            TYPE 'YES/yes'  IF YOU WANT TO PROCEED       ***** "+'\n')

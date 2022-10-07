@@ -22,6 +22,6 @@ while x == "y":
 		print("5")
 
 	if no == 6:
-		print("6")
+		print("5")
 		
 	x=input("Press Y to roll again or N to exit : ")

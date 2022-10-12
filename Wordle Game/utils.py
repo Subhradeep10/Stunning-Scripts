@@ -1,0 +1,2 @@
+import curses
+import os

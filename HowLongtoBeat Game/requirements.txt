@@ -1,0 +1,2 @@
+howlongtobeatpy==1.0.2
+prettytable==3.4.1

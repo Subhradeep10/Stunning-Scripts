@@ -1,10 +1,9 @@
-
-import random
-import os
-import sys
-import time
-
-from utils import curses
+from utils import (
+    curses,
+    os,
+    random,
+    time
+)
 from custom_exceptions import WordListNotAvailable
 
 
@@ -35,17 +34,21 @@ def get_words_list():
     return words
 
 
-def game(window):
-    from colour_curses import W, RBU, RU, GU, B, Y, YU
-
+def get_word():
+    return "ALABAMA"
     question_word = random.choice(get_words_list()).upper()
-    length = len(question_word)
+    return question_word
+
+
+
+def choose_n_tries_window(window):
+    from colour_curses import W, RBU, RU, GU, B, BU, Y, YU
     level = {
-        "easy" : 21,
-        "medium" : 10,
+        "easy" : 10,
+        "medium" : 8,
         "hard" : 6
     }
-    difficulty = [20, 9, 5]
+    difficulty = [10, 8, 6]
     text_menu = """\rChoose your difficulty:
     \r      1. Easy
     \r      2. Medium
@@ -53,14 +56,9 @@ def game(window):
     \r
     \rYour Choice [1-3]: """
 
-    window.nodelay(True)
-    key = ""        # For Recording Key Strokes
-    choice = -1
-
     window.clear()
+    window.addstr("\rPlease make sure your terminal is of size 10 lines or more to avoid any errors", RBU)
     window.addstr(text_menu, W)
-    print("Starting Game...", end= "\n\r")
-    # time.sleep(1)
 
     while True:
         try:
@@ -80,20 +78,38 @@ def game(window):
             pass
 
     choice = int(str(key))
-    tries = difficulty[choice - 1]
+    max_tries = difficulty[choice - 1]
+
+    return max_tries
+
+
+
+def game(window, question_word):
+    from colour_curses import W, RBU, RU, GU, B, BU, Y, YU
+
+
+    length = len(question_word)
+    correct = 0
+
+    window.nodelay(True)
+    window.scrollok(True)
+    key = ""        # For Recording Key Strokes
+
+    max_tries = choose_n_tries_window(window)
+    tries = 0
+
+
     window.clear()
-    window.addstr(f"You have {tries + 1} tries to guess the word.\n\rGood Luck!!\n\r\n\n", Y)
 
-
-    while tries:
+    while tries < max_tries and correct != length:
+        window.addstr(0, 0, f"You have {max_tries} tries to guess the word.\n\rGood Luck!!\n\r\n", Y)
         chars = 0
         answer = ["_" for i in range(length)]
-        # window.addstr(''.join(answer))
-        # window.addstr(f"\rThe chars length is {chars} and input:{answer}")
-        # og_message =
+        correct = 0
+
         while True:
             try:
-                window.addstr(f"\rThe chars length is {chars} and input:{' '.join(answer)}", B)
+                window.addstr(tries + 3, 0, f"\r({tries + 1}) ENTER WORD:{' '.join(answer)}", B)
                 key = window.getkey()
 
                 if key in ('KEY_BACKSPACE', '\b', '\x7f'):
@@ -113,24 +129,42 @@ def game(window):
                     answer[chars] = str(key).upper()
                     chars += 1
 
-
-                # window.clear()
-                # window.addstr(f"\n\rYou have {tries + 1} tries remaining to guess the word.\n\r", W)
-
             except Exception as e:
-                pass
+                # with open("Wordle Game/log.txt", 'w') as file:
+                #     file.write(f"This {e} occurred at {tries} tries with key = {str(key)}")
+                # time.sleep(0.1)
+                if key == curses.KEY_RESIZE:
+                    return "Resize Screen To a larger size or reduce font size in terminal."
+
+
 
         window.addstr("\r")
         for i in range(length):
             if answer[i] == question_word[i]:
-                window.addstr(f"{answer[i]} ", GU)
+                window.addstr(f"{answer[i]}", GU)
+                window.addstr(" ")
+                correct += 1
             elif answer[i] in question_word:
-                window.addstr(f"{answer[i]} ", YU)
+                if question_word.count(answer[i]) > 1:
+                    window.addstr(f"{answer[i]}", BU)
+                    window.addstr(" ")
+                else:
+                    window.addstr(f"{answer[i]}", YU)
+                    window.addstr(" ")
             else:
-                window.addstr(f"{answer[i]} ", RU)
+                window.addstr(f"{answer[i]}", RU)
+                window.addstr(" ")
 
-        tries -= 1
-        window.addstr("\n\r")
+        tries += 1
+        try:
+            window.addstr("\n\r")
+        except curses.error:
+            pass
+
+    window.refresh()
+    time.sleep(1)
+
+    return correct == length
 
 
 
@@ -138,4 +172,22 @@ def game(window):
 
 if __name__ == "__main__":
     # game()
-    curses.wrapper(game)
+    from colour import GU, YU, RU, B
+    print(B("Starting Game..."), end= "\n\r")
+    time.sleep(0.5)
+
+
+    question_word = get_word()
+    win = curses.wrapper(game, question_word)
+
+    if win is True:
+        print(GU("Congratulations!! You have guessed it right."))
+        print(GU("You Won!!!"))
+
+    elif win is False:
+        print(YU(f"The correct answer was {question_word}."))
+        print(RU("You lost."))
+        print(YU("Keep trying, you will win eventually."))
+
+    else:
+        print("There has some error occured while running: ", win)

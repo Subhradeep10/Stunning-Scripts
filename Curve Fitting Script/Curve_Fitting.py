@@ -7,6 +7,7 @@ import numpy as np
 #Closing Window Function
 def close_win():
    top.destroy()
+   exit(0)
 
 #Curve Fitting Function
 def pull(ch):

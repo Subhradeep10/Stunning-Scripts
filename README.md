@@ -1,10 +1,10 @@
 # Stunning Scripts
 
-![](banner.png)
+![Stunning-Scripts](https://socialify.git.ci/Subhradeep10/Stunning-Scripts/image?description=1&font=KoHo&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F70656957%3Fv%3D4&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
 
 ## About
 
-The main objective of this repository is to support both novice and seasoned contributors to open source programming. The repository contains a considerable number of Python-based Automation Scripts.
+The main objective of this repository is to support both novice and seasoned contributors to open source programming. Scripts in Python, JavaScript, Bash, PowerShell, and other languages are found in Stunning Scripts. As a Developer, think of this repository as your personal area to discover or contribute any new scripts that can simplify life for us and the wider open source community, as well as find a use for coding to relieve boredom.
 
 ## How to Contribute
 

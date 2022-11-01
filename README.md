@@ -1,4 +1,4 @@
-# Automation Scripts Using Python
+# Automation Scripts
 
 ![](banner.png)
 

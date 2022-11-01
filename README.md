@@ -1,4 +1,4 @@
-# Automation Scripts
+# Stunning Scripts
 
 ![](banner.png)
 

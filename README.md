@@ -12,7 +12,7 @@ The main objective of this repository is to support both novice and seasoned con
 - Check for existing issues or create your own issues and wait for it to be assigned to you.
 - Fork the repository
 - Clone the forked repository to your local machine
-- Create a folder with the name of the python script to a question you want to add if it is not present.
+- Create a folder with the name of the script to a question you want to add if it is not present.
 - Add the code to that folder
 - Add a README.md file to the folder explaining the code
 - Open the command prompt and cd into the repository folder

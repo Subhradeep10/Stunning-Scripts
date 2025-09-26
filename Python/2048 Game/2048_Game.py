@@ -31,7 +31,7 @@ class Board:
         '2048': '#f9f6f2',
     }
 
-    def _init_(self):
+    def __init__(self):
         self.n=4
         self.window=Tk()
         self.window.title('ProjectGurukul 2048 Game')
@@ -123,7 +123,7 @@ class Board:
                     fg=self.color.get(str(self.gridCell[i][j])))
 
 class Game:
-    def _init_(self,gamepanel):
+    def __init__(self,gamepanel):
         self.gamepanel=gamepanel
         self.end=False
         self.won=False
